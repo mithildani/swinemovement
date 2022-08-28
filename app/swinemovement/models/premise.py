@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Premise(models.Model):
-    premise_id = models.CharField(max_length=10, primary_key=True)
+    id = models.CharField(max_length=10, primary_key=True)
 
     name = models.CharField(max_length=30, null=True, blank=True)
     city = models.CharField(max_length=30, null=True, blank=True)
