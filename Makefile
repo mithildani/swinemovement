@@ -5,11 +5,20 @@ export LC_TYPE=en_US.UTF-8
 help:
 	@echo "Makefile for swinemovement-ms"
 	@echo "\033[33;36m"
-	@echo "dev-first-init       Install required packages, start infra components, add db schema and dummy data "
-	@echo "init             Install required packages and start infra components."
-	@echo "runserver                Run django server @9113"
-	@echo "runshell         Run django shell"
-	@echo "stopinfra         Stops supporting infra docker components"
+	@echo "Production commands:"
+	@echo "buildapp		Builds a docker image of the app"
+	@echo "startapp		Starts all services necessary for app. Webserver on 9113"
+	@echo "stopapp			Stops all services"
+	@echo "migrate			Run Postgres DB migration"
+	@echo "loaddata		Load dummmy data. Will error out if data already exists"
+	@echo "admin			Create Admin creds"
+	@echo "restartapp		Restarts webserver"
+	@echo
+	@echo "Dev commands:"
+	@echo "dev_first_init       	Install required packages, start infra components, add db schema and dummy data"
+	@echo "dev_init             	Install required packages and start infra components."
+	@echo "dev_runserver        	Run Django server @9113"
+	@echo "dev_runshell         	Run Django shell"
 
 buildapp:
 	sudo docker build --file ./app/Dockerfile -t swinemovementms:1.0.0 ./app
