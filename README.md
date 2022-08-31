@@ -28,6 +28,7 @@ Checkout technical details about the service [here](./app/README.md)
    ```
 
 If you are running this setup for the first time continue steps 4 to steps 7 <br />
+
 4. Run migrations
    ```shell
    make migrate
@@ -42,17 +43,13 @@ If you are running this setup for the first time continue steps 4 to steps 7 <br
    ```shell
    make admin
    ```
-7. Restart app
-   ```shell
-   make restartapp
-   ```
 
-9. Sign in and start using the application on [localhost:9113/admin](localhost:9113/admin)
-10. Visit [localhost:9113/admin/population/](localhost:9113/admin/population/) for population data
-11. Stop the application
-    ```shell
-    make stopapp
-    ```
+7. Sign in and start using the application on [localhost:9113/admin](localhost:9113/admin)
+8. Visit [localhost:9113/admin/population/](localhost:9113/admin/population/) for population data
+9. Stop the application
+   ```shell
+   make stopapp
+   ```
 
 
 ## How do I start dev? (Dev Setup) ##
