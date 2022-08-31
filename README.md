@@ -4,6 +4,9 @@ This project is a demo of a microservice implementation using Django REST apis, 
 ## Background ##
 In food animal systems, animals move to different farms as they age. Each farm has a unique ID and must keep a record of the movement of animals from one farm to another. Here, we present some fictitious records of movements among pig farms.
 
+## Demo ##
+https://user-images.githubusercontent.com/24509876/187802283-e2a1da1f-9ea8-485a-b323-94c4ea4b742a.mp4
+
 ## Architecture and Design ##
 Checkout technical details about the service [here](./app/README.md)
 
