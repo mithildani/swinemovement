@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.db.models import Sum
-from swinemovement.models import Premise, Movement
+
+from swinemovement.cachehandlers.populationcachehandler import PopulationCacheHandler
+from swinemovement.models import Premise
 from django.contrib.admin.views.decorators import staff_member_required
 from rest_framework.decorators import api_view
 
@@ -11,17 +12,16 @@ def get_population(request):
     population = []
 
     for premise in Premise.objects.all():
-        outgoing = Movement.objects.filter(origin_premise_id=premise.id).aggregate(Sum('items_moved'))["items_moved__sum"] or 0
-        incoming = Movement.objects.filter(destination_premise_id=premise.id).aggregate(Sum('items_moved'))["items_moved__sum"] or 0
-        total = incoming-outgoing
+        population_cache = PopulationCacheHandler(premise_id=premise.id)
+        population_cache.get_configuration()
+
         population.append({
             "id": premise.id,
             "name": premise.name,
-            "count": total
+            "count": population_cache.population_count
         })
-        print(f"{premise.id} total animal: {total}")
 
-        context = {
-            "population": population
-        }
+    context = {
+        "population": population
+    }
     return render(request, '../templates/population_table.html', context=context)
