@@ -5,7 +5,8 @@ export LC_TYPE=en_US.UTF-8
 help:
 	@echo "Makefile for swinemovement-ms"
 	@echo "\033[33;36m"
-	@echo "init             Install required packages."
+	@echo "first-init       Install required packages, start infra components, add db schema and dummy data "
+	@echo "init             Install required packages and start infra components."
 	@echo "runserver                Run django server @9113"
 	@echo "runshell         Run django shell"
 

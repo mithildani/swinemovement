@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from swinemovement.views import get_population
 
 urlpatterns = [
+    path('admin/population/', get_population, name='get_population'),
     path('admin/', admin.site.urls),
 ]
