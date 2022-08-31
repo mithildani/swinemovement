@@ -2,6 +2,7 @@
 ![ER Diagram](https://github.com/mithildani/swinemovement/blob/main/app/swinemovement/models/ERDiagram.png?raw=true)
 
 <br />
+
 ### Company ###
 Stores meta data of all companies involved in movement of animals
 
