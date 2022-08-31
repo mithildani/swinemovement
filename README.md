@@ -27,7 +27,7 @@ Checkout technical details about the service [here](./app/README.md)
    make startapp 
    ```
 
-If you are running this setup for the first time continue steps 4 to steps 7
+If you are running this setup for the first time continue steps 4 to steps 7 <br />
 4. Run migrations
    ```shell
    make migrate
