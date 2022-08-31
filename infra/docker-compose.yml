@@ -30,6 +30,15 @@ services:
         max-size: 17000m
         max-file: '5'
 
+  web:
+    image: 'swinemovementms:1.0.0'
+    command: python3 manage.py runserver 0.0.0.0:9113
+    ports:
+      - "9113:9113"
+    environment:
+      FLAVOUR: prod
+    depends_on:
+      - postgres
 
 volumes:
   redis_data:

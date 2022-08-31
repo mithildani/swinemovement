@@ -5,37 +5,55 @@ export LC_TYPE=en_US.UTF-8
 help:
 	@echo "Makefile for swinemovement-ms"
 	@echo "\033[33;36m"
-	@echo "first-init       Install required packages, start infra components, add db schema and dummy data "
+	@echo "dev-first-init       Install required packages, start infra components, add db schema and dummy data "
 	@echo "init             Install required packages and start infra components."
 	@echo "runserver                Run django server @9113"
 	@echo "runshell         Run django shell"
 	@echo "stopinfra         Stops supporting infra docker components"
 
-first_init:
+buildapp:
+	sudo docker build --file ./app/Dockerfile -t swinemovementms:1.0.0 ./app
+
+startapp:
+	sudo docker-compose -f ./infra/docker-compose.yml up -d
+	sudo docker exec -it infra_web_1 python3 manage.py collectstatic --noinput
+
+stopapp:
+	sudo docker-compose -f ./infra/docker-compose.yml down
+
+migrate:
+	sudo docker exec -it infra_web_1 python3 manage.py migrate
+
+loaddata:
+	sudo docker exec -it infra_web_1 python3 manage.py loaddata
+
+admin:
+	sudo docker exec -it infra_web_1 python3 manage.py createsuperuser
+
+restartapp:
+	sudo docker restart infra_web_1
+
+dev_first_init:
 	@echo "!! WARNING !! Please activate python virtual environment"
 	@echo "Recommended to use python 3.8"
 	sleep 5
 	pip3 install -r ./app/requirements/production.txt
-	sudo docker-compose -f ./infra/docker-compose.yml up -d
+	sudo docker-compose -f ./infra/docker-compose.yml up -d postgres redis
 	sleep 5
 	python3 ./app/manage.py migrate
 	python3 ./app/manage.py loaddata
 	@echo "Create Admin User"
 	python3 ./app/manage.py createsuperuser
 
-init:
+dev_init:
 	@echo "!! WARNING !! Please activate python virtual environment"
 	@echo "Recommended to use python 3.8"
 	sleep 5
 	pip3 install -r ./app/requirements/production.txt
-	sudo docker-compose -f ./infra/docker-compose.yml up -d
+	sudo docker-compose -f ./infra/docker-compose.yml up -d postgres redis
 
-runserver:
+dev_runserver:
 	python3 ./app/manage.py runserver 9113
 
-runshell:
+dev_runshell:
 	python3 ./app/manage.py shell
-
-stopinfra:
-	sudo docker-compose -f ./infra/docker-compose.yml down
-

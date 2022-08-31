@@ -19,7 +19,7 @@ def load_dummy_data():
     except Company.DoesNotExist:
         company = Company.objects.create(name='Mypigcmopany')
 
-    movement_data = pd.read_csv("../data/movement.csv")
+    movement_data = pd.read_csv("./data/movement.csv")
     for index, record in movement_data.iterrows():
         print(f"Adding {index}")
         try:

@@ -24,4 +24,4 @@ def get_population(request):
     context = {
         "population": population
     }
-    return render(request, '../templates/population_table.html', context=context)
+    return render(request, 'population_table.html', context=context)
