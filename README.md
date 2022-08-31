@@ -35,3 +35,5 @@ In food animal systems, animals move to different farms as they age. Each farm h
     make runserver
     ```
 5. Now go to localhost:9113/admin
+
+Checkout technical details about the service [here](../app/README.md)

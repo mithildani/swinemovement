@@ -9,6 +9,7 @@ help:
 	@echo "init             Install required packages and start infra components."
 	@echo "runserver                Run django server @9113"
 	@echo "runshell         Run django shell"
+	@echo "stopinfra         Stops supporting infra docker components"
 
 first_init:
 	@echo "!! WARNING !! Please activate python virtual environment"
@@ -34,3 +35,7 @@ runserver:
 
 runshell:
 	python3 ./app/manage.py shell
+
+stopinfra:
+	sudo docker-compose -f ./infra/docker-compose.yml down
+
