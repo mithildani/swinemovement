@@ -12,9 +12,8 @@ Checkout technical details about the service [here](./app/README.md)
 
 ## How do I run this service? (Prod setup) ##
 ### System Prerequisite ###
-1. System must have docker installed 
-2. System must have docker-compose installed 
-3. System must have enough RAM to run docker containers
+1. System must have git, docker, docker-compose installed 
+2. System must have enough RAM to run docker containers
 
 ### Steps to run service ### 
 1. Clone the repository
@@ -58,9 +57,8 @@ If you are running this setup for the first time continue steps 4 to steps 6 <br
 ## How do I start dev? (Dev Setup) ##
 ### System Prerequisite ###
 1. System must have python 3.8 and pip installed (Recommended to use a python virtual environment)
-2. System must have docker installed 
-3. System must have docker-compose installed 
-4. System must have enough RAM to run docker containers
+2. System must have git, docker, docker-compose installed 
+3. System must have enough RAM to run docker containers
 
 ### Steps to setup dev service ###
 
